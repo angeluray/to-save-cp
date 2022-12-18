@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Relations</h1>
+
+<div id="relations">
+  <% @relations.each do |relation| %>
+    <%= render relation %>
+    <p>
+      <%= link_to "Show this relation", relation %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New relation", new_relation_path %>
