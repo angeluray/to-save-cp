@@ -12,20 +12,20 @@
 
   <body>
   <%if user_signed_in? %>
-  <h1>Logo</h1>
-  <nav class="nav">
-    <ul class="categories-links">
+  <nav class="nav section-name">
        <% if current_page?(root_path) || current_page?(controller: "groups", action: "new") %>
-      <li>
+      <div>
+        <%= image_tag("https://img.icons8.com/ios/50/null/menu-rounded.png") %>
         <h2>CATEGORIES</h2>
-      </li>
+        <%= image_tag("https://img.icons8.com/ios/50/null/search--v1.png") %>
+      </div>
       <% else %>
-      <li>
+      <div>
         <%= link_to '<', root_path %>
         <h2>TRANSACTIONS</h2>
-      </li>
+        <%= image_tag("https://img.icons8.com/ios/50/null/search--v1.png") %>
+      </div>
       <% end %>
-    </ul>
   </nav> <br>
   <% end %>
     <p class="notice"><%= notice %></p>
