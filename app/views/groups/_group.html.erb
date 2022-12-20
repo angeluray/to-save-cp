@@ -1,12 +1,12 @@
-<div id="<%= dom_id group %>">
-  <p>
-    <strong>Name:</strong>
-    <%= group.name %>
-  </p>
 
-  <p>
-    <strong>Icon:</strong>
-    <%= group.icon %>
-  </p>
-
-</div>
+  <ul class="group-container">
+  <% @groups.each do |group| %>
+    <li>
+      <div class="group-image">
+        <%= image_tag group.icon, alt: 'my-icon' %>
+      </div>
+        <h3><%= link_to group.name, group_relations_path(group_id: group.id) %></h3>
+        <p>Transactions: <%= group.charges.count || 0 %></p>
+    </li>
+  <% end %>
+  </ul>

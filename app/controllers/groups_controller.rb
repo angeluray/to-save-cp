@@ -6,26 +6,19 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
-  # GET /groups/1 or /groups/1.json
-  def show
-  end
-
   # GET /groups/new
   def new
     @group = Group.new
   end
 
-  # GET /groups/1/edit
-  def edit
-  end
-
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
+    @group.user = current_user
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to group_url(@group), notice: "Group was successfully created." }
+        format.html { redirect_to groups_path, notice: "Category was successfully created." }
         format.json { render :show, status: :created, location: @group }
       else
         format.html { render :new, status: :unprocessable_entity }

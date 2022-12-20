@@ -15,21 +15,16 @@
   <h1>Logo</h1>
   <nav class="nav">
     <ul class="categories-links">
+       <% if current_page?(root_path) || current_page?(controller: "groups", action: "new") %>
       <li>
-        <%# <%= link_to root_path do %>
-        CATEGORIES
-        <%# <% end %>
+        <h2>CATEGORIES</h2>
       </li>
+      <% else %>
       <li>
-        <%# <%= link_to foods_path do %>
-        TRANSACTIONS
-        <%# <% end %>
+        <%= link_to '<', root_path %>
+        <h2>TRANSACTIONS</h2>
       </li>
-      <li>
-        <%# <%= link_to recipes_path do %>
-        ADD NEW TRANSACTION
-        <%# <% end %>
-      </li>
+      <% end %>
     </ul>
   </nav> <br>
   <% end %>

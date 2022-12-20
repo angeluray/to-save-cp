@@ -21,7 +21,13 @@
     <%= form.text_field :amount %>
   </div>
 
+  <div class="categorie-input-container">
+  <%= form.label :categories %>
+  <%= form.select :group_id, Group.all.collect {|group| [group.name, group.id]},{
+  include_blank: true} , class:"form-select" %>
+  </div>
+
   <div>
-    <%= form.submit %>
+    <%= form.submit 'SAVE' %>
   </div>
 <% end %>

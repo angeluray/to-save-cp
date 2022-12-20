@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
 
   # GET /charges or /charges.json
   def index
-    @charges = Charge.all
+    @group_charges = Charges.all.order('charges.created_at DESC').includes([:author_id])
   end
 
   # GET /charges/1 or /charges/1.json
@@ -15,33 +15,18 @@ class ChargesController < ApplicationController
     @charge = Charge.new
   end
 
-  # GET /charges/1/edit
-  def edit
-  end
-
   # POST /charges or /charges.json
   def create
     @charge = Charge.new(charge_params)
-
+    @charge.author_id = current_user.id
+    
     respond_to do |format|
       if @charge.save
-        format.html { redirect_to charge_url(@charge), notice: "Charge was successfully created." }
+        @charge_category = Relation.create(charge_id: @charge.id, group_id: group_params[:group_id])
+        format.html { redirect_to group_relations_path(group_params[:group_id]), notice: "Charge was successfully created." }
         format.json { render :show, status: :created, location: @charge }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @charge.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /charges/1 or /charges/1.json
-  def update
-    respond_to do |format|
-      if @charge.update(charge_params)
-        format.html { redirect_to charge_url(@charge), notice: "Charge was successfully updated." }
-        format.json { render :show, status: :ok, location: @charge }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @charge.errors, status: :unprocessable_entity }
       end
     end
@@ -63,6 +48,9 @@ class ChargesController < ApplicationController
       @charge = Charge.find(params[:id])
     end
 
+    def group_params
+      params.require(:charge).permit(:group_id)
+    end
     # Only allow a list of trusted parameters through.
     def charge_params
       params.require(:charge).permit(:name, :amount)

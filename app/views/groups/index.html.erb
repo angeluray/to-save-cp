@@ -1,14 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Groups</h1>
-
-<div id="groups">
-  <% @groups.each do |group| %>
-    <%= render group %>
-    <p>
-      <%= link_to "Show this group", group %>
-    </p>
-  <% end %>
+<div id="groups-section">
+  <%= render partial: '/groups/group' %>
+  <%= link_to "ADD A NEW CATEGORY", new_group_path %>
 </div>
 
-<%= link_to "New group", new_group_path %>
