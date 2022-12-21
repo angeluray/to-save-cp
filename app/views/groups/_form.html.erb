@@ -11,12 +11,11 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Name" %>
   </div>
 
-  <div>
+  <div class="categorie-input-container" >
     <%= form.select :icon, [
        ["Investment", "investment.png"], ["Bills", "bills.png" ],
        ["Healthcare", "health.png"], ["Education", "education.png"],
@@ -24,11 +23,15 @@
        ["Food, Snacks, Restaurants", "food.png"], ["Gym and Self-care", "gym.png"],
        ["Entertainment", "entertainment.png"], ["Beauty", "beauty.png"], ["Shopping", "shopping.png"],
        ["Emergencies", "emergency.png"]
-       ], class:'form-control' %>
+       ], class:'form-select' %>
   </div>
 
-  <div>
-    <%= form.submit 'SAVE'%>
+  <div class="add-t-container">
+    <%= form.submit 'SAVE', class: "add-transaction"%>
+  </div>
+
+  <div class="button-back">
+  <%= link_to "Back to groups", groups_path, class: "back-to" %> 
   </div>
 
 <% end %>
