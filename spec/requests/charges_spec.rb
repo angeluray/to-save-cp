@@ -13,123 +13,28 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/charges", type: :request do
-  
-  # This should return the minimal set of attributes required to create a valid
-  # Charge. As you add validations to Charge, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
-
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
-
-  describe "GET /index" do
-    it "renders a successful response" do
-      Charge.create! valid_attributes
-      get charges_url
-      expect(response).to be_successful
-    end
+  include Devise::Test::IntegrationHelpers
+  let(:user) do
+    User.create(
+      name: 'Angel',
+      email: 'angel@gmail.com',
+      password: '1234567'
+    )
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
-      charge = Charge.create! valid_attributes
-      get charge_url(charge)
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET /new" do
-    it "renders a successful response" do
-      get new_charge_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET /edit" do
-    it "renders a successful response" do
-      charge = Charge.create! valid_attributes
-      get edit_charge_url(charge)
-      expect(response).to be_successful
-    end
-  end
-
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Charge" do
-        expect {
-          post charges_url, params: { charge: valid_attributes }
-        }.to change(Charge, :count).by(1)
-      end
-
-      it "redirects to the created charge" do
-        post charges_url, params: { charge: valid_attributes }
-        expect(response).to redirect_to(charge_url(Charge.last))
-      end
+  describe 'GET /charges' do
+    before do
+      sign_in user
+      get new_charge_path
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Charge" do
-        expect {
-          post charges_url, params: { charge: invalid_attributes }
-        }.to change(Charge, :count).by(0)
-      end
-
-    
-      it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post charges_url, params: { charge: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    
-    end
-  end
-
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested charge" do
-        charge = Charge.create! valid_attributes
-        patch charge_url(charge), params: { charge: new_attributes }
-        charge.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "redirects to the charge" do
-        charge = Charge.create! valid_attributes
-        patch charge_url(charge), params: { charge: new_attributes }
-        charge.reload
-        expect(response).to redirect_to(charge_url(charge))
-      end
+    it 'returns the right responds' do
+      get '/charges/new'
+      expect(response).to have_http_status(200)
     end
 
-    context "with invalid parameters" do
-    
-      it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        charge = Charge.create! valid_attributes
-        patch charge_url(charge), params: { charge: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    
-    end
-  end
-
-  describe "DELETE /destroy" do
-    it "destroys the requested charge" do
-      charge = Charge.create! valid_attributes
-      expect {
-        delete charge_url(charge)
-      }.to change(Charge, :count).by(-1)
-    end
-
-    it "redirects to the charges list" do
-      charge = Charge.create! valid_attributes
-      delete charge_url(charge)
-      expect(response).to redirect_to(charges_url)
+    it 'responds html' do
+      expect(response.content_type).to include 'text/html'
     end
   end
 end

@@ -6,38 +6,34 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
   <%if user_signed_in? %>
-  <h1>Logo</h1>
-  <nav class="nav">
-    <ul class="categories-links">
-      <li>
-        <%# <%= link_to root_path do %>
-        CATEGORIES
-        <%# <% end %>
-      </li>
-      <li>
-        <%# <%= link_to foods_path do %>
-        TRANSACTIONS
-        <%# <% end %>
-      </li>
-      <li>
-        <%# <%= link_to recipes_path do %>
-        ADD NEW TRANSACTION
-        <%# <% end %>
-      </li>
-    </ul>
-  </nav> <br>
+  <nav class="nav section-name form-nav">
+       <% if current_page?(root_path) || current_page?(controller: "groups", action: "new") %>
+      <div class="new-my-form">
+        <%= image_tag("https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png") %>
+        <h2>CATEGORIES</h2>
+        <%if user_signed_in? %>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "signout", method: :delete %>
+        <% end %>
+      </div>
+      <% else %>
+      <div class="new-my-form">
+        <%= link_to '<', root_path %>
+        <h2>TRANSACTIONS</h2>
+       <%if user_signed_in? %>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "signout", method: :delete %>
+       <% end %>
+      </div>
+      <% end %>
+  </nav>
   <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%if user_signed_in? %>
-      <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <% end %>
   </body>
 </html>

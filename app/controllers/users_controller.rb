@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
+  # before_filter :authenticate_user!, except: [:new, :create]
 
   # GET /users or /users.json
   def index

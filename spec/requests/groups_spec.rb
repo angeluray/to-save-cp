@@ -13,123 +13,52 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe "/groups", type: :request do
-  
-  # This should return the minimal set of attributes required to create a valid
-  # Group. As you add validations to Group, be sure to
-  # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  include Devise::Test::IntegrationHelpers
+  let(:user) do
+    User.create(
+      name: 'angel',
+      email: 'angel@gmail.com',
+      password: '1234567'
+    )
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:category) do
+    user.categories.create(
+      name: 'Food',
+      icon: 'http://fasfa-utensils',
+      user_id: user.id
+    )
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
-      Group.create! valid_attributes
-      get groups_url
-      expect(response).to be_successful
+  describe 'GET /groups' do
+    before do
+      sign_in user
+      get groups_path
+    end
+
+    it 'returns all groups/categories' do
+      get '/groups'
+      expect(response).to have_http_status(200)
+    end
+
+    it 'responds html' do
+      expect(response.content_type).to include 'text/html'
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
-      group = Group.create! valid_attributes
-      get group_url(group)
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET /new" do
-    it "renders a successful response" do
-      get new_group_url
-      expect(response).to be_successful
-    end
-  end
-
-  describe "GET /edit" do
-    it "renders a successful response" do
-      group = Group.create! valid_attributes
-      get edit_group_url(group)
-      expect(response).to be_successful
-    end
-  end
-
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Group" do
-        expect {
-          post groups_url, params: { group: valid_attributes }
-        }.to change(Group, :count).by(1)
-      end
-
-      it "redirects to the created group" do
-        post groups_url, params: { group: valid_attributes }
-        expect(response).to redirect_to(group_url(Group.last))
-      end
+  describe 'GET /categories' do
+    before do
+      sign_in user
+      get new_group_path
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Group" do
-        expect {
-          post groups_url, params: { group: invalid_attributes }
-        }.to change(Group, :count).by(0)
-      end
-
-    
-      it "renders a response with 422 status (i.e. to display the 'new' template)" do
-        post groups_url, params: { group: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    
-    end
-  end
-
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested group" do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: new_attributes }
-        group.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "redirects to the group" do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: new_attributes }
-        group.reload
-        expect(response).to redirect_to(group_url(group))
-      end
+    it 'returns new category' do
+      get '/groups/new'
+      expect(response).to have_http_status(200)
     end
 
-    context "with invalid parameters" do
-    
-      it "renders a response with 422 status (i.e. to display the 'edit' template)" do
-        group = Group.create! valid_attributes
-        patch group_url(group), params: { group: invalid_attributes }
-        expect(response).to have_http_status(:unprocessable_entity)
-      end
-    
-    end
-  end
-
-  describe "DELETE /destroy" do
-    it "destroys the requested group" do
-      group = Group.create! valid_attributes
-      expect {
-        delete group_url(group)
-      }.to change(Group, :count).by(-1)
-    end
-
-    it "redirects to the groups list" do
-      group = Group.create! valid_attributes
-      delete group_url(group)
-      expect(response).to redirect_to(groups_url)
+    it 'respons to html' do
+      expect(response.content_type).to include 'text/html'
     end
   end
 end
