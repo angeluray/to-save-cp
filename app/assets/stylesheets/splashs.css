@@ -15,6 +15,10 @@ body {
     height: 90%;
 }
 
+.splash-section img {
+  margin-top: 80px;
+}
+
 .splash-section ul {
   list-style-type: none;
   display: flex;
@@ -44,11 +48,21 @@ body {
   border-radius: 5px;
 }
 
+.splash-section ul .active-button a {
+  font-weight: 600;
+  color: #fff;
+}
+
 .splash-section ul .unactive-button {
     padding: 18px;
     width: 100%;
     color: #434b54;
     text-align: center;
     border-radius: 5px;
+}
+
+.splash-section ul .unactive-button a {
+  font-weight: 600;
+  color: #434b54;
 }
 
