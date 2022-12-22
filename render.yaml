@@ -1,7 +1,7 @@
 databases:
-  - name: big-chefsito-database
-    databaseName: recipe_app_development
-    user: angelfede
+  - name: budgesito
+    databaseName: budged_app
+    user: angel
 
 services:
   - type: web
