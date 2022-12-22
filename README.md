@@ -55,15 +55,10 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 Recipe App<a name="about-project"></a>
+# 📖 2SAVE <a name="about-project"></a>
 
 
-**Recipe App** is an App created with Ruby on Rails and Postgresql, that will keep a record of all recipes
-![Screen Shot 2022-12-15 at 09 52 28](https://user-images.githubusercontent.com/99816838/207907180-7ff5383a-0ece-4759-9a70-bd12828f9b4b.png)
-![Screen Shot 2022-12-15 at 09 52 58](https://user-images.githubusercontent.com/99816838/207907197-123a67c7-c9cd-4142-8ec2-54f1d1f8f83f.png)
-![Screen Shot 2022-12-15 at 09 53 40](https://user-images.githubusercontent.com/99816838/207907212-9f0729f8-1ba4-4ea6-8d73-df7a932b2796.png)
-![Screen Shot 2022-12-15 at 09 54 32](https://user-images.githubusercontent.com/99816838/207907229-fe97817a-d9de-49cb-8402-ebc89d32dc1d.png)
-
+**2SAVE - Budged App** is an App created with Ruby on Rails and Postgresql, that will keep a record of all recipes
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -98,11 +93,16 @@ After you're finished please remove all the comments and instructions!
 
 > Describe between 1-3 key features of the application.
 
-- **App is able to display public and private recipes**
-- **App is able to generate shopping list**
-- **App is able to show preparation time and cooking time**
+- **App is able to display custom categories for each user**
+- **App is able to generate categories and transactions for each category**
+- **App is able to show the total amount of money they have spent for each category**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Media and Live Demo <a name="presentation"></a>
+
+[Video presentation](https://youtu.be/mc_qPIxRP-s)
+[Deploy](https://little-budged.onrender.com/splashs/index)
 
 
 <!-- GETTING STARTED -->
@@ -121,7 +121,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-git clone https://github.com/Flunavgt/recipe_app.git
+> git clone git@github.com:angeluray/to-save-cp.git
 
 ### Install
 
@@ -139,14 +139,8 @@ To run the project, execute the following command:
 
 <!-- AUTHORS -->
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Author <a name="authors"></a>
 
-
-👤 **Federico Luna V. **
-
-- GitHub: [@Flunavgt](https://github.com/Flunavgt)
-- Twitter: [@flunavgt](https://twitter.com/flunavgt)
-- LinkedIn: [federico-luna-Gt](https://linkedin.com/in/federico-luna-Gt)
 
 👤 **Angel Uray **
 
