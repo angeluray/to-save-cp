@@ -1,0 +1,14 @@
+
+  <ul class="group-container">
+  <% @groups.each do |group| %>
+    <% if can? :manage, group %>
+    <li>
+      <div class="group-image">
+        <%= image_tag group.icon, alt: 'my-icon' %>
+      </div>
+        <h3><%= link_to group.name, group_relations_path(group_id: group.id) %></h3>
+        <p>Transactions: <%= group.charges.count || 0 %></p>
+    </li>
+    <% end %>
+  <% end %>
+  </ul>

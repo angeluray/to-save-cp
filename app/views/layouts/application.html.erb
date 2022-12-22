@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2Save</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <%if user_signed_in? %>
+  <nav class="nav section-name form-nav">
+       <% if current_page?(root_path) || current_page?(controller: "groups", action: "new") %>
+      <div class="new-my-form">
+        <%= image_tag("https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png") %>
+        <h2>CATEGORIES</h2>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "signout", method: :delete %>
+      </div>
+
+      <% elsif current_page?(controller: "charges", action: "new")%>
+
+      <div class="new-my-form">
+        <%= link_to '<', :back %>
+        <h2>TRANSACTIONS</h2>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "signout", method: :delete %>
+      </div>
+
+      <% else %>
+      <div class="new-my-form">
+        <%= link_to '<', root_path %>
+        <h2>TRANSACTIONS</h2>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "signout", method: :delete %>
+      </div>
+      <% end %>
+  </nav>
+  <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

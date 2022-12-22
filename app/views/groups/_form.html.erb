@@ -1,0 +1,37 @@
+<%= form_with(model: group) do |form| %>
+  <% if group.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div>
+
+  <div class="categorie-input-container" >
+    <%= form.select :icon, [
+       ["Investment", "investment.png"], ["Bills", "bills.png" ],
+       ["Healthcare", "health.png"], ["Education", "education.png"],
+       ["Transportation", "public-transport.png"], ["Travels/Trips", "travel.png"],
+       ["Food, Snacks, Restaurants", "food.png"], ["Gym and Self-care", "gym.png"],
+       ["Entertainment", "entertainment.png"], ["Beauty", "beauty.png"], ["Shopping", "shopping.png"],
+       ["Emergencies", "emergency.png"]
+       ], class:'form-select' %>
+  </div>
+
+  <div class="add-t-container">
+    <%= form.submit 'SAVE', class: "add-transaction"%>
+  </div>
+
+  <div class="button-back">
+  <%= link_to "Back to groups", groups_path, class: "back-to" %> 
+  </div>
+
+<% end %>

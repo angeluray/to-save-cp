@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<div id="relations">
+  <ul class="charge-container group-container">
+   <div class="group-transactions-header">
+      <h3><%= @group.name %> <span><%= "Total $#{total_amount(@charges)}" %></span></h3>
+   </div>
+   <% if @charges.empty? %>
+     <li>You don't have any registered charges yet</li>
+   <% end %>
+
+   <% @charges.each do |charge| %>
+    <% if can? :manage, Charge %>
+    <li>
+     <div class="charge-card">
+     <div class="charge-image"><%= image_tag @group.icon %></div>
+     <div class="charge-info">
+       <h3><%= charge.name %></h3>
+       <h4><%= charge.created_at %></h4>
+     </div>
+     </div>
+      <p>$<%= charge.amount %></p>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
+
+  <div class="add-b-container">
+  <%= link_to "Add a new transaction", new_charge_path, class: "transaction-new add-category" %>
+  </div>
+</div>

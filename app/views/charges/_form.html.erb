@@ -1,0 +1,34 @@
+<%= form_with(model: charge) do |form| %>
+  <% if charge.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(charge.errors.count, "error") %> prohibited this charge from being saved:</h2>
+
+      <ul>
+        <% charge.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :name, placeholder: "Name" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :amount, placeholder: "Amount" %>
+  </div>
+
+  <div class="categorie-input-container">
+  <%= form.select :group_id, Group.all.collect {|group| [group.name, group.id]},{
+  include_blank: true} , :required => 'required', class:"form-select" %>
+  </div>
+
+  <div class="add-t-container">
+    <%= form.submit 'SAVE', class: "add-transaction" %>
+  </div>
+
+  <div class="button-back">
+  <%= link_to "Back to charges", charges_path, class: "back-to" %>
+  </div>
+<% end %>
