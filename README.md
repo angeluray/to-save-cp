@@ -101,7 +101,7 @@ After you're finished please remove all the comments and instructions!
 
 ### Media and Live Demo <a name="presentation"></a>
 
-[Video presentation](https://youtu.be/mc_qPIxRP-s)
+[Video presentation](https://youtu.be/mc_qPIxRP-s)  <br/>
 [Deploy](https://little-budged.onrender.com/splashs/index)
 
 
@@ -152,6 +152,9 @@ To run the project, execute the following command:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
+## Acknowlegments
+
+> Original design idea by [Gregoire Vella on Behance](https://www.behance.net/gregoirevella).
 
 <!-- LICENSE -->
 
