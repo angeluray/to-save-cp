@@ -143,3 +143,17 @@
 .back-to {
  color: #999999;
 }
+
+.signout {
+  background-color: #3778c2;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  transition: all ease 0.5s;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.signout:hover {
+  background-color: #386aab;
+}

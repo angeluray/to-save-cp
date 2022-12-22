@@ -15,15 +15,19 @@
   <nav class="nav section-name form-nav">
        <% if current_page?(root_path) || current_page?(controller: "groups", action: "new") %>
       <div class="new-my-form">
-        <%= image_tag("https://img.icons8.com/ios/50/null/menu-rounded.png") %>
+        <%= image_tag("https://img.icons8.com/ios-glyphs/30/FFFFFF/menu--v1.png") %>
         <h2>CATEGORIES</h2>
-        <%= image_tag("https://img.icons8.com/ios/50/null/search--v1.png") %>
+        <%if user_signed_in? %>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "signout", method: :delete %>
+        <% end %>
       </div>
       <% else %>
       <div class="new-my-form">
         <%= link_to '<', root_path %>
         <h2>TRANSACTIONS</h2>
-        <%= image_tag("https://img.icons8.com/ios/50/null/search--v1.png") %>
+       <%if user_signed_in? %>
+        <%= button_to "Sign Out", destroy_user_session_path, class: "signout", method: :delete %>
+       <% end %>
       </div>
       <% end %>
   </nav>
@@ -31,8 +35,5 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%# <%if user_signed_in? %>
-      <%# <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
-    <%# <% end %>
   </body>
 </html>

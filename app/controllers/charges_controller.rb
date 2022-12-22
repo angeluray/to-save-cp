@@ -3,7 +3,7 @@ class ChargesController < ApplicationController
 
   # GET /charges or /charges.json
   def index
-    @group_charges = Charges.all.order('charges.created_at DESC').includes([:author_id])
+    @group_charges = Charges.all.order('charges.created_at DESC').includes[:user]
   end
 
   # GET /charges/1 or /charges/1.json
@@ -23,11 +23,9 @@ class ChargesController < ApplicationController
     respond_to do |format|
       if @charge.save
         @charge_category = Relation.create(charge_id: @charge.id, group_id: group_params[:group_id])
-        format.html { redirect_to group_relations_path(group_params[:group_id]), notice: "Charge was successfully created." }
-        format.json { render :show, status: :created, location: @charge }
+        format.html { redirect_to group_relations_path(@charge_category.group_id), notice: "Charge was successfully created." }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @charge.errors, status: :unprocessable_entity }
       end
     end
   end

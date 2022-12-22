@@ -2,14 +2,15 @@
 
 <div id="relations">
   <ul class="charge-container group-container">
-  <div class="group-transactions-header">
-      <h3><%= @group.name %> <span>Total: 450$</span></h3>
+   <div class="group-transactions-header">
+      <h3><%= @group.name %> <span><%= "Total $#{total_amount(@charges)}" %></span></h3>
    </div>
    <% if @charges.empty? %>
      <li>You don't have any registered charges yet</li>
    <% end %>
 
    <% @charges.each do |charge| %>
+    <% if can? :manage, Charge %>
     <li>
      <div class="charge-card">
      <div class="charge-image"><%= image_tag @group.icon %></div>
@@ -21,7 +22,7 @@
       <p>$<%= charge.amount %></p>
     </li>
     <% end %>
-
+    <% end %>
   </ul>
 
   <div class="add-b-container">

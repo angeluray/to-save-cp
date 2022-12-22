@@ -5,6 +5,7 @@ Rails.application.routes.draw do
      resources :splashs, only: [:index]
 
       resources :groups, only: [:index, :new, :create] do
+          resources :charges, only: [:new, :create]
           resources :relations, only: [:index]
       end
 

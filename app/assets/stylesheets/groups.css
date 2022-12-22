@@ -55,7 +55,8 @@ a {
 }
 
 .group-container li p {
-  color: #a9a9a9;
+  color: #434b54;
+  font-weight: 600;
 }
 
 .add-b-container {
@@ -75,6 +76,7 @@ a {
   text-align: center;
   transition: all ease 0.5s;
   cursor: pointer;
+  font-weight: 800;
 }
 
 .add-category:hover {
