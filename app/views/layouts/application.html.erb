@@ -11,6 +11,28 @@
   </head>
 
   <body>
+  <%if user_signed_in? %>
+  <h1>Logo</h1>
+  <nav class="nav">
+    <ul class="categories-links">
+      <li>
+        <%# <%= link_to root_path do %>
+        CATEGORIES
+        <%# <% end %>
+      </li>
+      <li>
+        <%# <%= link_to foods_path do %>
+        TRANSACTIONS
+        <%# <% end %>
+      </li>
+      <li>
+        <%# <%= link_to recipes_path do %>
+        ADD NEW TRANSACTION
+        <%# <% end %>
+      </li>
+    </ul>
+  </nav> <br>
+  <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
