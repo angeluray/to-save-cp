@@ -41,12 +41,8 @@
   height: 48px;
 }
 
-.group-container li a {
-  color: #434b54;
-}
-
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .group-container li a {
@@ -60,12 +56,12 @@ a {
 }
 
 .add-b-container {
-    background-color: #5fb523;
-    width: 100%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #5fb523;
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .add-category {
@@ -84,7 +80,7 @@ a {
 }
 
 #group_icon {
- padding: 10px;
- width: 95%;
- border: none;
+  padding: 10px;
+  width: 95%;
+  border: none;
 }

@@ -14,7 +14,7 @@
 }
 
 .group-transactions-header {
-    width: 100%;
+  width: 100%;
 }
 
 .group-transactions-header h3 {
@@ -47,9 +47,9 @@
 }
 
 .charge-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .charge-info h3 {
@@ -112,9 +112,9 @@
 }
 
 .categorie-input-container .form-select {
-    width: 90%;
-    padding: 10px;
-    border: none;
+  width: 90%;
+  padding: 10px;
+  border: none;
 }
 
 .add-t-container {
@@ -141,7 +141,7 @@
 }
 
 .back-to {
- color: #999999;
+  color: #999;
 }
 
 .signout {
