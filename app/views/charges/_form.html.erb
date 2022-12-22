@@ -21,7 +21,7 @@
 
   <div class="categorie-input-container">
   <%= form.select :group_id, Group.all.collect {|group| [group.name, group.id]},{
-  include_blank: true} , class:"form-select" %>
+  include_blank: true} , :required => 'required', class:"form-select" %>
   </div>
 
   <div class="add-t-container">
