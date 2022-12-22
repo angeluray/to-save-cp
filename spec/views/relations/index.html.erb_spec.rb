@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "relations/index", type: :view do
+RSpec.describe 'relations/index', type: :view do
   before :each do
     @user = User.create(
       name: 'Angel',
@@ -23,14 +23,13 @@ RSpec.describe "relations/index", type: :view do
     @group_charge = Relation.create(group_id: @category.id, charge_id: @charge.id)
 
     visit new_user_session_path
-      fill_in 'user[email]', with: @user.email
-      fill_in 'user[password]', with: @user.password
-      click_button 'Log in'
-      visit groups_path
+    fill_in 'user[email]', with: @user.email
+    fill_in 'user[password]', with: @user.password
+    click_button 'Log in'
+    visit groups_path
   end
 
   describe 'GET /relations between groups and charges' do
-    
     it 'displays all transactions' do
       visit group_relations_path(@category.id)
       expect(page).to have_content('Food')

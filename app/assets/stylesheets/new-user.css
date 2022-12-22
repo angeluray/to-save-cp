@@ -49,31 +49,9 @@
   transition: all ease 0.5s;
 }
 
-.new-my-form input:hover {
-  background-color: #275a94;
-}
-
-.field {
-  width: 100%;
-  background-color: #fff;
-}
-
 .field input {
   width: 90%;
   padding: 15px;
-}
-
-.f-1 {
-  margin-top: 12px;
-  border-top: 1px solid rgb(207, 207, 207);
-  display: flex;
-  justify-content: center;
-}
-
-.f-2 {
-  border-bottom: 1px solid rgb(207, 207, 207);
-  display: flex;
-  justify-content: center;
 }
 
 .f-1 input {
@@ -87,6 +65,28 @@
 .f-2 input {
   border: none;
   outline: none;
+}
+
+.new-my-form input:hover {
+  background-color: #275a94;
+}
+
+.field {
+  width: 100%;
+  background-color: #fff;
+}
+
+.f-1 {
+  margin-top: 12px;
+  border-top: 1px solid rgb(207, 207, 207);
+  display: flex;
+  justify-content: center;
+}
+
+.f-2 {
+  border-bottom: 1px solid rgb(207, 207, 207);
+  display: flex;
+  justify-content: center;
 }
 
 .forgot {

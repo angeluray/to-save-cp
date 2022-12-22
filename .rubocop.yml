@@ -43,6 +43,10 @@ Style/FrozenStringLiteralComment:
   EnforcedStyle: never
 Style/EndOfLine:
   EnforcedStyle: lf
+Style/IfUnlessModifier:
+  Enabled: false
+Style/IfInsideElse:
+  Enabled: false
 
 Layout/HashAlignment:
   EnforcedColonStyle: key

@@ -8,11 +8,11 @@ body {
 }
 
 .splash-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 90%;
 }
 
 .splash-section img {
@@ -54,15 +54,14 @@ body {
 }
 
 .splash-section ul .unactive-button {
-    padding: 18px;
-    width: 100%;
-    color: #434b54;
-    text-align: center;
-    border-radius: 5px;
+  padding: 18px;
+  width: 100%;
+  color: #434b54;
+  text-align: center;
+  border-radius: 5px;
 }
 
 .splash-section ul .unactive-button a {
   font-weight: 600;
   color: #434b54;
 }
-
