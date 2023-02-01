@@ -58,7 +58,7 @@ After you're finished please remove all the comments and instructions!
 # 📖 2SAVE <a name="about-project"></a>
 
 
-**2SAVE - Budged App** is an App created with Ruby on Rails and Postgresql, that will keep a record of all recipes
+**2SAVE - Budged App** is an app created with Ruby on Rails and Postgresql, and tested with RSpec that will keep a record of all your expenses based on the categories you create. Every time to add a new transaction to any category it updates the total amount of money you have spent. Post and 
 
 ## 🛠 Built With <a name="built-with"></a>
 
