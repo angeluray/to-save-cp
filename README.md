@@ -51,7 +51,7 @@ After you're finished please remove all the comments and instructions!
 # 📖 2SAVE <a name="about-project"></a>
 
 
-**2SAVE - Budged App** is an app created with Ruby on Rails and Postgresql, and tested with RSpec that will keep a record of all your expenses based on the categories you create. Every time to add a new transaction to any category it updates the total amount of money you have spent. Post and 
+**2SAVE - Budged App** is a MVC app created with Ruby on Rails, Postgresql, and tested with RSpec that will keep a record of all your expenses based on the categories you create. Every time you add a new transaction to any category it updates the total amount of money you have spent, saving users to invest too much time on managing their money. 
 
 ## 🛠 Built With <a name="built-with"></a>
 
