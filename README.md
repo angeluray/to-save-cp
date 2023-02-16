@@ -84,8 +84,6 @@ After you're finished please remove all the comments and instructions!
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
 - **App is able to display custom categories for each user**
 - **App is able to generate categories and transactions for each category**
 - **App is able to show the total amount of money they have spent for each category**
