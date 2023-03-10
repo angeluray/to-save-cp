@@ -141,7 +141,7 @@ To run the project, execute the following command:
 ## 👥 Author <a name="authors"></a>
 
 
-👤 **Angel Uray **
+👤 **Angel Uray**
 
 - GitHub: [@angeluray](https://github.com/angeluray)
 - Twitter: [@atangeluray](https://twitter.com/atangeluray)
